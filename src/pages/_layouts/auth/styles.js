@@ -3,8 +3,7 @@ import { darken } from 'polished';
 
 export const Wrapper = styled.div`
   height: 100%;
-  /*background: linear-gradient(-90deg, #7159c1, #ab59c1);*/
-  background-image: url('http://belaesmalteria.com.br/img/bg.jpg');
+  background: linear-gradient(-90deg, #c71585, #9370db);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -17,8 +16,9 @@ export const Content = styled.div`
   text-align: center;
 
   img {
-    height: 100px;
-    widht: 200px;
+    height: 160px;
+    widht: 360px;
+    border-radius: 50%;
   }
 
   form {
@@ -72,6 +72,11 @@ export const Content = styled.div`
       &:hover {
         opacity: 1;
       }
+    }
+
+    footer {
+      padding: 25px;
+      color: #fff;
     }
   }
 `;

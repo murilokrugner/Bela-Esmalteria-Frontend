@@ -24,7 +24,7 @@ export default function SignIn() {
 
   return (
     <>
-      <img src={logo} alt="Gobarber" />
+      <img src={logo} alt="logobela" height="500px" />
 
       <Form schema={schema} onSubmit={handleSubmit}>
         <Input name="email" type="email" placeholder="Seu e-mail" />
@@ -35,6 +35,7 @@ export default function SignIn() {
         />
         <button type="submit">{loading ? 'Carregando...' : 'Acessar'}</button>
         <Link to="/register">Criar conta gratuita</Link>
+        <footer>v1.0 Beta</footer>
       </Form>
     </>
   );

@@ -18,8 +18,8 @@ export const Content = styled.div`
     align-items: center;
 
     img {
-      height: 50px;
-      width: 100px;
+      height: 60px;
+      width: 90px;
       margin-right: 20px;
       padding-right: 20px;
       border-right: 1px solid #eee;

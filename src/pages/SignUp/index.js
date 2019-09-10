@@ -27,7 +27,7 @@ export default function SignUp() {
 
   return (
     <>
-      <img src={logo} alt="LogoBela" />
+      <img src={logo} alt="LogoBela" height="500px" />
 
       <Form schema={schema} onSubmit={handleSubmit}>
         <Input name="name" placeholder="Nome Completo" />
@@ -40,6 +40,7 @@ export default function SignUp() {
 
         <button type="submit">Criar conta</button>
         <Link to="/">Já tenho uma conta</Link>
+        <footer>v1.0 Beta</footer>
       </Form>
     </>
   );
