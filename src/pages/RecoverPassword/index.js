@@ -5,21 +5,22 @@ import * as Yup from 'yup';
 import { Form, Input } from '@rocketseat/unform';
 import logo from '~/assets/logobela.png';
 
-import { signInRequest } from '~/store/modules/auth/actions';
+import api from '~/services/api';
 
 const schema = Yup.object().shape({
   email: Yup.string()
     .email('Insira um e-mail válido')
     .required('O e-mail é obrigatório'),
-  password: Yup.string().required('A senha é obrigatória'),
 });
 
-export default function SignIn() {
+export default function RecoverPassword() {
   const dispatch = useDispatch();
   const loading = useSelector(state => state.auth.loading);
 
-  function handleSubmit({ email, password }) {
-    dispatch(signInRequest(email, password));
+  const response = api.post('/forgot_password');
+
+  function handleSubmit({ email }) {
+    dispatch(response(email));
   }
 
   return (
@@ -27,16 +28,13 @@ export default function SignIn() {
       <img src={logo} alt="logobela" height="500px" />
 
       <Form schema={schema} onSubmit={handleSubmit}>
-        <Input name="email" type="email" placeholder="Seu e-mail" />
         <Input
-          name="password"
-          type="password"
-          placeholder="Sua senha secreta"
+          name="email"
+          type="email"
+          placeholder="Digite seu e-mail para recuperar a senha"
         />
-        <button type="submit">{loading ? 'Carregando...' : 'Acessar'}</button>
-        <Link to="/register">Criar conta gratuita</Link>
-        <br />
-        <Link to="/recoverpassword">Esqueci minha senha :(</Link>
+        <button type="submit">{loading ? 'Carregando...' : 'Enviar'}</button>
+        <Link to="/">Lembrei minha senha :)</Link>
         <footer>v1.0 Beta</footer>
       </Form>
     </>
