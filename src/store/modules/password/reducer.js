@@ -5,7 +5,7 @@ const InitalState = {
   password: null,
   token: null,
   loading: false,
-}
+};
 
 export default function password(state = InitalState, action) {
   return produce(state, draft => {
@@ -17,7 +17,7 @@ export default function password(state = InitalState, action) {
       case '@password/RECOVER_PASSWORD_SUCCESS': {
         draft.email = action.payload.email;
         draft.loading = false;
-        break
+        break;
       }
       case '@password/RECOVER_PASSWORD_FAILURE': {
         draft.loading = false;
@@ -30,6 +30,7 @@ export default function password(state = InitalState, action) {
       case '@password/RESET_PASSWORD_SUCCESS': {
         draft.email = action.payload.email;
         draft.password = action.payload.password;
+        draft.token = action.payload.token;
         draft.loading = false;
         break;
       }

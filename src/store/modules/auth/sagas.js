@@ -18,16 +18,19 @@ export function* signIn({ payload }) {
 
     const { token, user } = response.data;
 
-    if (!user.provider) {
-      toast.error('Usuario não é prestador');
-      return;
-    }
-
     api.defaults.headers.Authorization = `Bearer ${token}`;
 
     yield put(signInSuccess(token, user));
 
-    history.push('/dashboard');
+    if (user.provider) {
+      history.push('/dashboard');
+      return;
+    }
+
+    if (!user.provider) {
+      history.push('/dashboardclient');
+      return;
+    }
   } catch (err) {
     toast.error('Falha na autenticação, verifique seus dados');
     yield put(signFailure());
@@ -42,7 +45,7 @@ export function* signUp({ payload }) {
       name,
       email,
       password,
-      provider: true,
+      provider: false,
     });
 
     history.push('/');

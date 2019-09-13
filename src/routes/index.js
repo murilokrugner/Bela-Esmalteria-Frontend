@@ -10,16 +10,27 @@ import ResetPassword from '../pages/ResetPassword';
 import Dashboard from '../pages/Dashboard';
 import Profile from '../pages/Profile';
 
+import DashboardClient from '../pages/DashboardClient';
+import ProfileClient from '../pages/ProfileClient';
+
 export default function Routes() {
   return (
     <Switch>
       <Route path="/" exact component={SignIn} />
       <Route path="/register" component={SignUp} />
       <Route path="/recoverpassword" component={RecoverPassword} />
-      <Route path="/resetpassword/:token" component={ResetPassword} />
+      <Route path="/resetpassword" component={ResetPassword} />
 
       <Route path="/dashboard" component={Dashboard} isPrivate />
       <Route path="/profile" component={Profile} isPrivate />
+
+      <Route
+        path="/dashboardclient"
+        component={DashboardClient}
+        isPrivateClient
+      />
+
+      <Route path="/profileclient" component={ProfileClient} isPrivateClient />
 
       <Route path="/" component={() => <h1>404</h1>} />
     </Switch>

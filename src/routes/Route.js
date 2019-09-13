@@ -10,16 +10,26 @@ import { store } from '~/store';
 export default function RouterWrapper({
   component: Component,
   isPrivate,
+  isPrivateClient,
   ...rest
 }) {
   const { signed } = store.getState().auth;
+  const { user } = store.getState().auth;
 
   if (!signed && isPrivate) {
     return <Redirect to="/" />;
   }
 
-  if (signed && !isPrivate) {
-    return <Redirect to="/dashboard" />;
+  if (!signed && isPrivateClient) {
+    return <Redirect to="/" />;
+  }
+
+  if (!isPrivateClient && signed && !user.provider) {
+    return <Redirect to="dashboardclient" />;
+  }
+
+  if (!isPrivate && signed && user.provider) {
+    return <Redirect to="dashboardclient" />;
   }
 
   const Layout = signed ? DefaultLayout : AuthLayout;
@@ -38,10 +48,12 @@ export default function RouterWrapper({
 
 RouterWrapper.propTypes = {
   isPrivate: PropTypes.bool,
+  isPrivateClient: PropTypes.bool,
   component: PropTypes.oneOfType([PropTypes.element, PropTypes.func])
     .isRequired,
 };
 
 RouterWrapper.defaultProps = {
   isPrivate: false,
+  isPrivateClient: false,
 };
