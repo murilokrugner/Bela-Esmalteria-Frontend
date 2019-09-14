@@ -13,18 +13,20 @@ export default function DashboardClient() {
     async function loadAppointments() {
       const response = await api.get('appointments');
 
-      setAppointments(response.data);
+      const data = response.data.map(appointment => ({
+        ...appointment,
+      }));
+
+      setAppointments(data);
     }
 
     loadAppointments();
   }, [appointments]);
 
-  /* const firstDate = parseISO('2018-04-01 16:00:00');
-  const formattedDate = format(
-    firstDate,
-    "'Dia' dd 'de' MMMM', às ' HH:mm'h'",
-    { locale: pt }
-  ); */
+  // const firstDate = parseISO('2018-04-01 16:00:00');
+  /* const formattedDate = format(data, "'Dia' dd 'de' MMMM', às ' HH:mm'h'", {
+    locale: pt,
+  }); */
 
   return (
     <Container>

@@ -42,6 +42,11 @@ export default function Profile() {
           placeholder="Confirmação de senha"
         />
 
+        <hr />
+
+        <Input type="text" name="peso" placeholder="Seu Peso" />
+        <Input type="text" name="altura" placeholder="Sua Altura" />
+
         <button type="submit">Atualizar perfil</button>
       </Form>
       <button type="button" onClick={handleSignOut}>

@@ -15,7 +15,17 @@ export default function Header() {
       <Content>
         <nav>
           <img src={logo} alt="logo" />
-          <Link to="/dashboard">DASHBOARD</Link>
+          <ul>
+            <li>
+              <Link to="/feed">FEED</Link>
+            </li>
+            <li>
+              <Link to="/dashboardclient">MEUS AGENDAMENTOS</Link>
+            </li>
+            <li>
+              <Link to="/selectservice">AGENDAR</Link>
+            </li>
+          </ul>
         </nav>
 
         <aside>
@@ -24,7 +34,7 @@ export default function Header() {
           <Profile>
             <div>
               <strong>{profile.name}</strong>
-              <Link to="/profile">Meu Perfil</Link>
+              <Link to="/profileclient">Meu Perfil</Link>
             </div>
             <img
               src={

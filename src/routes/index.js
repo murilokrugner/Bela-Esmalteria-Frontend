@@ -12,6 +12,9 @@ import Profile from '../pages/Profile';
 
 import DashboardClient from '../pages/DashboardClient';
 import ProfileClient from '../pages/ProfileClient';
+import SelectService from '../pages/Schedule/SelectService';
+import SelectDate from '../pages/Schedule/SelectDate';
+import Confirm from '../pages/Schedule/Confirm';
 
 export default function Routes() {
   return (
@@ -31,6 +34,9 @@ export default function Routes() {
       />
 
       <Route path="/profileclient" component={ProfileClient} isPrivateClient />
+      <Route path="/selectservice" component={SelectService} isPrivateClient />
+      <Route path="/selectdate" component={SelectDate} isPrivateClient />
+      <Route path="/confirm" component={Confirm} isPrivateClient />
 
       <Route path="/" component={() => <h1>404</h1>} />
     </Switch>

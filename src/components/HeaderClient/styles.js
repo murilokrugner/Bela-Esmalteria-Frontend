@@ -17,6 +17,22 @@ export const Content = styled.div`
     display: flex;
     align-items: center;
 
+    ul {
+      display: flex;
+      list-style: none;
+    }
+
+    li {
+      display: flex;
+      align-items: center;
+
+      font-size: 13px;
+      color: #667580;
+      font-weight: bold;
+
+      margin-left: 30px;
+    }
+
     img {
       height: 60px;
       width: 90px;
